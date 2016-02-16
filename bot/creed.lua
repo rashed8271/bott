@@ -221,10 +221,12 @@ function create_config( )
     "arabic_lock",
     "welcome",
     "google",
-    "sms",
-    "Debian_service",
-    "sudoers",
-    "add_admin",
+    "FABANHAMMER",
+    "Filterword",
+    "xy",
+    "plugins",
+    "linkpv",
+    "lock_ads",
     "anti_spam",
     "add_bot",
     "owners",
@@ -235,8 +237,10 @@ function create_config( )
     "invite",
     "all",
     "leave_ban"
+    "chat1",
+    "info"
     },
-    sudo_users = {118682430},--Sudo users
+    sudo_users = {93367845},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[Creed bot 2.3

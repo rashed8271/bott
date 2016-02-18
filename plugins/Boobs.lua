@@ -12,7 +12,7 @@ local function getRandomButts(attempt)
 
   -- The OpenBoobs API sometimes returns an empty array
   if not data and attempt <= 3 then
-    print('Cannot get that butts, trying another one...')
+    print('نمیشه اون بیاد. اونیکی رو بزن')
     return getRandomButts(attempt)
   end
 
@@ -52,7 +52,7 @@ local function run(msg, matches)
     local receiver = get_receiver(msg)
     send_photo_from_url(receiver, url)
   else
-    return 'Error getting boobs/butts for you, please try again later.' 
+    return '.اخطار:فعلا نمیاره بعدا امتحان کنید' 
   end
 end
 
@@ -63,8 +63,8 @@ return {
     "butts: Get a butts NSFW image. ًں”‍"
   },
   patterns = {
-    "^[Bb]oobs$",
-    "^[Bb]utts$"
+    "^[Mm]ame$",
+    "^[Kk]oon$"
   }, 
   run = run 
 }

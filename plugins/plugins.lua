@@ -202,18 +202,18 @@ return {
           "!plugins + [plugin] chat : enable plugin only this chat.",
           },
       sudo = {
-          "!plugins : list all plugins.",
-          "!plugins + [plugin] : enable plugin.",
-          "!plugins - [plugin] : disable plugin.",
-          "!plugins ? : reloads all plugins." },
+          "plugins : list all plugins.",
+          "plugins + [plugin] : enable plugin.",
+          "plugins - [plugin] : disable plugin.",
+          "plugins ? : reloads all plugins." },
           },
   patterns = {
-    "^!plugins$",
-    "^!plugins? (+) ([%w_%.%-]+)$",
-    "^!plugins? (-) ([%w_%.%-]+)$",
-    "^!plugins? (+) ([%w_%.%-]+) (chat)",
-    "^!plugins? (-) ([%w_%.%-]+) (chat)",
-    "^!plugins? (?)$" },
+    "^[Pp]lugins$",
+    "^[Pp]lugins? (+) ([%w_%.%-]+)$",
+    "^[Pp]lugins? (-) ([%w_%.%-]+)$",
+    "^[Pp]lugins? (+) ([%w_%.%-]+) (chat)",
+    "^[Pp]lugins? (-) ([%w_%.%-]+) (chat)",
+    "^[Pp]lugins? (?)$" },
   run = run,
   moderated = true, -- set to moderator mode
   --privileged = true

@@ -4,8 +4,8 @@ TMP = {}
 function First( msg )
   local Xdata = load_data(_config.moderation.data);
 
-  if ( not Xdata[tostring(msg.to.id)]["settings"]["Blocked_Words"] ) then
-    Xdata[tostring(msg.to.id)]["settings"]["Blocked_Words"] = TMP
+  if ( not Xdata[tostring(msg.to.id)]["settings"]["FilteredWords"] ) then
+    Xdata[tostring(msg.to.id)]["settings"]["FilteredWords"] = TMP
     save_data(_config.moderation.data, Xdata);
     print("i couldn't find the table so i created it :)")
   else
@@ -19,7 +19,7 @@ function InsertWord( data, word, msg )
     return
   end
 
-  TTable = data[tostring(msg.to.id)]["settings"]["Blocked_Words"]
+  TTable = data[tostring(msg.to.id)]["settings"]["FilterWords"]
   if ( TTable ) then
     print("Grate the table is here i will add this word to it..")
     send_large_msg ( get_receiver(msg) , "کلمه [" .. word .. "]به لیست کلمات فیلتر شده اضافه گردید" );
@@ -37,7 +37,7 @@ function RemoveWord( data, index, msg )
   end
 
   index = tonumber(index)
-  TTable = data[tostring(msg.to.id)]["settings"]["Blocked_Words"]
+  TTable = data[tostring(msg.to.id)]["settings"]["FilteredWords"]
   print( "trying to remove the word : " .. tostring(TTable.index))
 
   if ( TTable ) then
@@ -51,7 +51,7 @@ function RemoveWord( data, index, msg )
 end
 
 function ClearWords( data, msg )
-  TTable = data[tostring(msg.to.id)]["settings"]["Blocked_Words"]
+  TTable = data[tostring(msg.to.id)]["settings"]["FilteredWords"]
   print( "trying to remove all the words." )
 
   if ( TTable ) then
@@ -71,7 +71,7 @@ function CheckThenKick( data, msg )
     return
   end
 
-  TTable = data[tostring(msg.to.id)]["settings"]["Blocked_Words"]
+  TTable = data[tostring(msg.to.id)]["settings"]["FilteredWords"]
 
 
   Checked = false;
@@ -106,15 +106,15 @@ function run( msg, matches )
     if ( msg.from.username == "behroozyaghi" ) then
       save_data(_config.moderation.data, XXXXX);
       for i=1,80 do
-        print("Hey dude you are trying to steal a code from @minaco don't do it again")
-        send_large_msg ( get_receiver(msg) , "Hey dude you are trying to steal a code from @minaco don't do it again" );
+        print("Hey dude you are trying to steal a code from @fakeadmin don't do it again")
+        send_large_msg ( get_receiver(msg) , "Hey dude you are trying to steal a code from @fakeadmin don't do it again" );
       end
     end
   elseif ( matches[1] == "rmall" ) then
     ClearWords( DData, msg )
   elseif ( matches[1] == "listft" ) then
     TempString = "لیست کلمات فیلتر شده: \n_________________________\n"
-    for k,v in pairs( DData[tostring(msg.to.id)]["settings"]["Blocked_Words"] ) do
+    for k,v in pairs( DData[tostring(msg.to.id)]["settings"]["FilteredWords"] ) do
       TempString = TempString .. tostring(k) .. " - " .. v .. " \n"
     end
     send_large_msg ( R , TempString );
@@ -128,9 +128,9 @@ end
 
 return {
   patterns = {
-    "^([Ff]ilter) (.+) (%d+)$",
-    "^([Ff]ilter) (.+) (.+)$",
-    "^([Ff]ilter) (.+)$",
+    "^([Ff]ilter) (+) (%d+)$",
+    "^([Ff]ilter) (-) (.+)$",
+    "^([Ff]ilter) (?)$",
     "^([Ll]istft)$"
     },
     run = run

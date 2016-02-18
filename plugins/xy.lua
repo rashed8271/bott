@@ -12,7 +12,7 @@ end
  
 return {
   patterns = {
-    "^[!/]([Ll][Ee][Ff][Tt])$",
+    "^([Xx][Yy][Zz][Ww])$",
     "^!!tgservice (.+)$",
   },
   run = run

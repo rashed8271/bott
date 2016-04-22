@@ -1,5 +1,7 @@
+
+
 do
-local Arian = 93367845--put your id here(BOT OWNER ID)
+local SUDO = 106164433 --put your id here(BOT OWNER ID)
 
 local function setrank(msg, name, value) -- setrank function
   local hash = nil
@@ -24,7 +26,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
 	local hash = 'rank:'..extra.chat2..':variables'
 	local value = redis:hget(hash, result.id)
     if not value then
-	 if result.id == tonumber(Arian) then
+	 if result.id == tonumber(SUDO) then
 	   text = text..'مقام : مدیر کل ربات (Executive Admin) \n\n'
 	  elseif is_admin2(result.id) then
 	   text = text..'مقام : ادمین ربات (Admin) \n\n'
@@ -43,7 +45,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
   local um_hash = 'msgs:'..result.id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'تعداد پیام های فرستاده شده : '..user_info_msgs..'\n\n'
-  text = text..'@BossTGch Team'
+  text = text..'paradux bot'
   send_msg(extra.receiver, text, ok_cb,  true)
   else
 	send_msg(extra.receiver, extra.user..' نام کاربری مورد نظر یافت نشد.', ok_cb, false)
@@ -63,7 +65,7 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
   local hash = 'rank:'..extra.chat2..':variables'
   local value = redis:hget(hash, result.id)
   if not value then
-	 if result.id == tonumber(Arian) then
+	 if result.id == tonumber(SUDO) then
 	   text = text..'مقام : مدیر کل ربات (Executive Admin) \n\n'
 	  elseif is_admin2(result.id) then
 	   text = text..'مقام : ادمین ربات (Admin) \n\n'
@@ -82,7 +84,7 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
   local um_hash = 'msgs:'..result.id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'تعداد پیام های فرستاده شده : '..user_info_msgs..'\n\n'
-  text = text..'@MAXBOTTG Team'
+  text = text..'paradux bot'
   send_msg(extra.receiver, text, ok_cb,  true)
   else
   send_msg(extra.receiver, 'ایدی شخص مورد نظر در سیستم ثبت نشده است.\nاز دستور زیر استفاده کنید\n/info @username', ok_cb, false)
@@ -101,7 +103,7 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
 	local hash = 'rank:'..result.to.id..':variables'
 		local value = redis:hget(hash, result.from.id)
 		 if not value then
-		    if result.from.id == tonumber(Arian) then
+		    if result.from.id == tonumber(SUDO) then
 		       text = text..'مقام : مدیر کل ربات (Executive Admin) \n\n'
 		     elseif is_admin2(result.from.id) then
 		       text = text..'مقام : ادمین ربات (Admin) \n\n'
@@ -121,7 +123,7 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
   local um_hash = 'msgs:'..result.from.id..':'..result.to.id
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
   text = text..'تعداد پیام های فرستاده شده : '..user_info_msgs..'\n\n'
-  text = text..'@MAXBOTTG'
+  text = text..'paradux bot'
   send_msg(extra.receiver, text, ok_cb, true)
 end
 
@@ -169,7 +171,7 @@ local function run(msg, matches)
 	if hash then
 	  local value = redis:hget(hash, msg.from.id)
 	  if not value then
-		if msg.from.id == tonumber(Arian) then
+		if msg.from.id == tonumber(SUDO) then
 		 text = text..'مقام : مدیر کل ربات (Executive Admin) \n\n'
 		elseif is_sudo(msg) then
 		 text = text..'مقام : ادمین ربات (Admin) \n\n'
@@ -194,7 +196,7 @@ local function run(msg, matches)
 	 text = text..'نام گروه : '..msg.to.title..'\n'
      text = text..'ایدی گروه : '..msg.to.id
     end
-	text = text..'\n\n@BossTGch Team'
+	text = text..'\n\nparadux bot'
     return send_msg(receiver, text, ok_cb, true)
     end
   end
@@ -222,10 +224,10 @@ return {
 	'(Reply)!setrank <rank>: change members rank.',
   },
   patterns = {
-	"^([Ii][Nn][Ff][Oo])$",
-	"^([Ii][Nn][Ff][Oo]) (.*)$",
-	"^([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (%d+) (.*)$",
-	"^([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (.*)$",
+	"^[/!]([Ii][Nn][Ff][Oo])$",
+	"^[/!]([Ii][Nn][Ff][Oo]) (.*)$",
+	"^[/!]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (%d+) (.*)$",
+	"^[/!]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (.*)$",
   },
   run = run
 }

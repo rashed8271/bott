@@ -243,20 +243,11 @@ function create_config( )
     sudo_users = {93367845},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Creed bot 2.3
+    about_text = [[paradux bot 2
     
-     Hello my Good friends 
-     
-    ‼️ this bot is made by : @creed_is_dead
-   〰〰〰〰〰〰〰〰
-   ߔࠀ   our admins are : 
-   ߔࠀ   @sorblack_creed
-   ߔࠀ   @amircc_creed
-   ߔࠀ   @aria_creed
-   〰〰〰〰〰〰〰〰
-  ♻️ You can send your Ideas and messages to Us By sending them into bots account by this command :
-   تمامی درخواست ها و همه ی انتقادات و حرفاتونو با دستور زیر بفرستین به ما
-   !feedback (your ideas and messages)
+    sudo:Xx_A_M_xX_bye_ethd
+    
+    paradux bot v2
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -341,7 +332,7 @@ This command will send text to [group_id]✉️
 
 You Can user both "!" & "/" for them
 میتوانید از هردوی کاراکتر های ! و / برای دستورات استفاده کنید
-
+paradux bot
 
 ]],
     help_text = [[
@@ -534,7 +525,7 @@ To tags the every one and sends your message at bottom
 
 You Can user both "!" & "/" for them
 می توانید از دو شکلک !  و / برای دادن دستورات استفاده کنید
-
+paradux bot
 ]]
 
   }
